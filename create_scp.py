@@ -1,96 +1,37 @@
 import os
 
-train_mix_scp = 'tr_mix.scp'
-train_s1_scp = 'tr_s1.scp'
-train_s2_scp = 'tr_s2.scp'
+trainings = [f'/Users/elijahjohnson/Downloads/proj/output_files/string_{i}/{i}_{j}.wav' if i!=0 else f'/Users/elijahjohnson/Downloads/proj/input_files/0_{j}.wav' for i in range(0,7) for j in range(1,66)] #EDIT Directory HERE
+testings = [f'/Users/elijahjohnson/Downloads/proj/output_files/string_{i}/{i}_{j}.wav' if i!=0 else f'/Users/elijahjohnson/Downloads/proj/input_files/0_{j}.wav' for i in range(0,7) for j in range(131,196)] #EDIT Directory HERE
+validations = [f'/Users/elijahjohnson/Downloads/proj/output_files/string_{i}/{i}_{j}.wav' if i!=0 else f'/Users/elijahjohnson/Downloads/proj/input_files/0_{j}.wav' for i in range(0,7) for j in range(66,131)] #EDIT Directory HERE
+training_scps = [f"tr_{i}.scp" if i!=0 else f"tr_mix.scp" for i in range(0,7)]
+test_scps = [f"tt_{i}.scp"  if i!=0 else f"tt_mix.scp" for i in range(0,7)]
+validations_scps = [f"cv_{i}.scp"  if i!=0 else f"cv_mix.scp" for i in range(0,7)]
 
-test_mix_scp = 'tt_mix.scp'
-test_s1_scp = 'tt_s1.scp'
-test_s2_scp = 'tt_s2.scp'
+# def scp_convert(scps, nscps):
+#     for idx, s in enumerate(scps):
+#         f = open(s,'w')
+#         for root, dirs, files in os.walk(nscps[idx]):
+#             files.sort()
+#             for file in files:
+#                 print(file+" "+root+'/'+file)
+#                 f.write(file+" "+root+'/'+file)
+#                 f.write('\n')
 
-train_mix = '/home/likai/likai/Dataset/wsj0-mix/2speakers/wav8k/min/tr/mix'
-train_s1 = '/home/likai/likai/Dataset/wsj0-mix/2speakers/wav8k/min/tr/s1'
-train_s2 = '/home/likai/likai/Dataset/wsj0-mix/2speakers/wav8k/min/tr/s2'
+def scp_convert(scps, paths):
+    for scp, path in zip(scps, paths):
+        with open(scp, 'w') as file:
+            for p in path:
+                file.write(f"{os.path.basename(p)} {p}\n")
+                print(f"{os.path.basename(p)} {p}")
 
-test_mix = '/home/likai/likai/Dataset/wsj0-mix/2speakers/wav8k/min/tt/mix'
-test_s1 = '/home/likai/likai/Dataset/wsj0-mix/2speakers/wav8k/min/tt/s1'
-test_s2 = '/home/likai/likai/Dataset/wsj0-mix/2speakers/wav8k/min/tt/s2'
-
-tr_mix = open(train_mix_scp,'w')
-for root, dirs, files in os.walk(train_mix):
-    files.sort()
-    for file in files:
-        tr_mix.write(file+" "+root+'/'+file)
-        tr_mix.write('\n')
-
-
-tr_s1 = open(train_s1_scp,'w')
-for root, dirs, files in os.walk(train_s1):
-    files.sort()
-    for file in files:
-        tr_s1.write(file+" "+root+'/'+file)
-        tr_s1.write('\n')
-
-
-tr_s2 = open(train_s2_scp,'w')
-for root, dirs, files in os.walk(train_s2):
-    files.sort()
-    for file in files:
-        tr_s2.write(file+" "+root+'/'+file)
-        tr_s2.write('\n')
-
-
-
-tt_mix = open(test_mix_scp,'w')
-for root, dirs, files in os.walk(test_mix):
-    files.sort()
-    for file in files:
-        tt_mix.write(file+" "+root+'/'+file)
-        tt_mix.write('\n')
-
-
-tt_s1 = open(test_s1_scp,'w')
-for root, dirs, files in os.walk(test_s1):
-    files.sort()
-    for file in files:
-        tt_s1.write(file+" "+root+'/'+file)
-        tt_s1.write('\n')
-
-
-tt_s2 = open(test_s2_scp,'w')
-for root, dirs, files in os.walk(test_s2):
-    files.sort()
-    for file in files:
-        tt_s2.write(file+" "+root+'/'+file)
-        tt_s2.write('\n')
-
-cv_mix_scp = 'cv_mix.scp'
-cv_s1_scp = 'cv_s1.scp'
-cv_s2_scp = 'cv_s2.scp'
-
-cv_mix = '/home/likai/likai/Dataset/wsj0-mix/2speakers/wav8k/min/cv/mix'
-cv_s1 = '/home/likai/likai/Dataset/wsj0-mix/2speakers/wav8k/min/cv/s1'
-cv_s2 = '/home/likai/likai/Dataset/wsj0-mix/2speakers/wav8k/min/cv/s2'
-
-cv_mix_file = open(cv_mix_scp,'w')
-for root, dirs, files in os.walk(cv_mix):
-    files.sort()
-    for file in files:
-        cv_mix_file.write(file+" "+root+'/'+file)
-        cv_mix_file.write('\n')
-
-
-cv_s1_file = open(cv_s1_scp,'w')
-for root, dirs, files in os.walk(cv_s1):
-    files.sort()
-    for file in files:
-        cv_s1_file.write(file+" "+root+'/'+file)
-        cv_s1_file.write('\n')
-
-
-cv_s2_file = open(cv_s2_scp,'w')
-for root, dirs, files in os.walk(cv_s2):
-    files.sort()
-    for file in files:
-        cv_s2_file.write(file+" "+root+'/'+file)
-        cv_s2_file.write('\n')
+training_sets = [[f for f in trainings if f'/{i}_' in f] for i in range(7)]
+testing_sets = [[f for f in testings if f'/{i}_' in f] for i in range(7)]
+validation_sets = [[f for f in validations if f'/{i}_' in f] for i in range(7)]
+    
+# scp_convert(training_scps, trainings)
+# scp_convert(test_scps, testings)
+# scp_convert(validations_scps, validations)
+                
+scp_convert(training_scps, training_sets)
+scp_convert(test_scps, testing_sets)
+scp_convert(validations_scps, validation_sets)

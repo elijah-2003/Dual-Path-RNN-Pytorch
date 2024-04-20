@@ -1,16 +1,22 @@
 #### general settings
 name: Dual_Path_RNN
 use_tb_logger: true
-num_spks: 2
+num_spks: 6
 #### datasets
 datasets:
   train:
-    dataroot_mix: /home/likai/data1/create_scp/tr_mix.scp
-    dataroot_targets: [/home/likai/data1/create_scp/tr_s1.scp,/home/likai/data1/create_scp/tr_s2.scp]
+    dataroot_mix: /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_mix.scp
+    dataroot_targets: [/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_1.scp, 
+    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_2.scp, /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_3.scp,
+    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_4.scp, /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_5.scp,
+    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_6.scp]
 
   val:
-    dataroot_mix: /home/likai/data1/create_scp/cv_mix.scp
-    dataroot_targets: [/home/likai/data1/create_scp/cv_s1.scp,/home/likai/data1/create_scp/cv_s2.scp]
+    dataroot_mix: /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_mix.scp
+    dataroot_targets: [/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_1.scp,
+    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_2.scp, /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_3.scp,
+    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_4.scp, /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_5.scp,
+    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_6.scp]
   
   dataloader_setting:
     shuffle: true
@@ -18,9 +24,9 @@ datasets:
     batch_size: 1
   
   audio_setting:
-    sample_rate: 8000
-    chunk_size: 32000
-    least_size: 16000
+    sample_rate: 160000
+    chunk_size: 256
+    least_size: 128
     
 
 #### network structures
@@ -35,13 +41,13 @@ Dual_Path_RNN:
   bidirectional: true
   num_layers: 6
   K: 250
-  num_spks: 2
+  num_spks: 6
 
 #### training settings: learning rate scheme, loss
 train:
   epoch: 100
   early_stop: 10
-  path: /home/likai/data1/Dual-Path-RNN/checkpoint
+  path: /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/checkpoint
   gpuid: [7]
 
 #### Optimizer settings
@@ -61,13 +67,13 @@ scheduler:
 #### Resume training settings
 resume:
   state: false
-  path: /home/likai/data1/Dual-Path-RNN/checkpoint
+  path: /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/checkpoint
 
 
 #### logger
 logger:
   name: DPCL
-  path: /home/likai/data1/Dual-Path-RNN/checkpoint
+  path: /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/checkpoint
   screen: true
   tofile: false
   print_freq: 1000

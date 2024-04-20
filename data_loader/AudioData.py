@@ -18,7 +18,7 @@ def read_wav(fname, return_rate=False):
                      C is the number of channels. 
                 sr: sample rate
     '''
-    src, sr = torchaudio.load(fname, channels_first=True)
+    src, sr = torchaudio.load(fname, channels_first=True, format="wav")
     if return_rate:
         return src.squeeze(), sr
     else:
@@ -82,6 +82,6 @@ class AudioReader(object):
 
 
 if __name__ == "__main__":
-    a = AudioReader("/home/likai/data1/create_scp/cv_mix.scp")
+    a = AudioReader("/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_mix.scp")
     audio = a.audio
     print(len(audio))

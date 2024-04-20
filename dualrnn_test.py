@@ -62,7 +62,7 @@ class Separation():
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument(
-        '-mix_scp', type=str, default='../create_scp/tt_mix.scp', help='Path to mix scp file.')
+        '-mix_scp', type=str, default='./tt_mix.scp', help='Path to mix scp file.')
     parser.add_argument(
         '-yaml', type=str, default='./config/train_rnn_opt.yml', help='Path to yaml file.')
     parser.add_argument(
