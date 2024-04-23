@@ -19,7 +19,11 @@ def make_dataloader(opt):
     train_dataset = Datasets(
         opt['datasets']['train']['dataroot_mix'],
         [opt['datasets']['train']['dataroot_targets'][0],
-         opt['datasets']['train']['dataroot_targets'][1]],
+         opt['datasets']['train']['dataroot_targets'][1],
+         opt['datasets']['train']['dataroot_targets'][2],
+         opt['datasets']['train']['dataroot_targets'][3],
+         opt['datasets']['train']['dataroot_targets'][4],
+         opt['datasets']['train']['dataroot_targets'][5]],
         **opt['datasets']['audio_setting'])
     train_dataloader = Loader(train_dataset,
                               batch_size=opt['datasets']['dataloader_setting']['batch_size'],
@@ -31,7 +35,11 @@ def make_dataloader(opt):
     val_dataset = Datasets(
         opt['datasets']['val']['dataroot_mix'],
         [opt['datasets']['val']['dataroot_targets'][0],
-         opt['datasets']['val']['dataroot_targets'][1]],
+         opt['datasets']['val']['dataroot_targets'][1],
+         opt['datasets']['val']['dataroot_targets'][2],
+         opt['datasets']['val']['dataroot_targets'][3],
+         opt['datasets']['val']['dataroot_targets'][4],
+         opt['datasets']['val']['dataroot_targets'][5]],
         **opt['datasets']['audio_setting'])
     val_dataloader = Loader(val_dataset,
                             batch_size=opt['datasets']['dataloader_setting']['batch_size'],

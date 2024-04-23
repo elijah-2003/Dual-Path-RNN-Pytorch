@@ -32,10 +32,10 @@ class Datasets(Dataset):
 
 
 if __name__ == "__main__":
-    dataset = Datasets("/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_mix.scp",
-                      ["/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_1.scp", "/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_2.scp",
-                       "/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_3.scp", "/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_4.scp",
-                       "/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_5.scp", "/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_6.scp"]) #CHANGE DIRECTORIES HERE
+    dataset = Datasets("cv_mix.scp",
+                      ["cv_1.scp", "cv_2.scp",
+                       "cv_3.scp", "cv_4.scp",
+                       "cv_5.scp", "cv_6.scp"]) #CHANGE DIRECTORIES HERE
     for i in dataset.mix_audio:
         if i.shape[0] != 32000:
             print('fail')

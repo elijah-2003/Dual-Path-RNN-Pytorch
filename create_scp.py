@@ -1,8 +1,8 @@
 import os
 
-trainings = [f'/Users/elijahjohnson/Downloads/proj/output_files/string_{i}/{i}_{j}.wav' if i!=0 else f'/Users/elijahjohnson/Downloads/proj/input_files/0_{j}.wav' for i in range(0,7) for j in range(1,66)] #EDIT Directory HERE
-testings = [f'/Users/elijahjohnson/Downloads/proj/output_files/string_{i}/{i}_{j}.wav' if i!=0 else f'/Users/elijahjohnson/Downloads/proj/input_files/0_{j}.wav' for i in range(0,7) for j in range(131,196)] #EDIT Directory HERE
-validations = [f'/Users/elijahjohnson/Downloads/proj/output_files/string_{i}/{i}_{j}.wav' if i!=0 else f'/Users/elijahjohnson/Downloads/proj/input_files/0_{j}.wav' for i in range(0,7) for j in range(66,131)] #EDIT Directory HERE
+trainings = [f'/Users/Elijah/Documents/GitHub/Dual-Path-RNN-Pytorch/proj/output_files/string_{i}/{i}_{j}.wav' if i!=0 else f'/Users/Elijah/Documents/GitHub/Dual-Path-RNN-Pytorch/proj/input_files/0_{j}.wav' for i in range(0,7) for j in range(1,22)] #EDIT Directory HERE
+testings = [f'/Users/Elijah/Documents/GitHub/Dual-Path-RNN-Pytorch/proj/output_files/string_{i}/{i}_{j}.wav' if i!=0 else f'/Users/Elijah/Documents/GitHub/Dual-Path-RNN-Pytorch/proj/input_files/0_{j}.wav' for i in range(0,7) for j in range(22,45)] #EDIT Directory HERE
+validations = [f'/Users/Elijah/Documents/GitHub/Dual-Path-RNN-Pytorch/proj/output_files/string_{i}/{i}_{j}.wav' if i!=0 else f'/Users/Elijah/Documents/GitHub/Dual-Path-RNN-Pytorch/proj/input_files/0_{j}.wav' for i in range(0,7) for j in range(45,68)] #EDIT Directory HERE
 training_scps = [f"tr_{i}.scp" if i!=0 else f"tr_mix.scp" for i in range(0,7)]
 test_scps = [f"tt_{i}.scp"  if i!=0 else f"tt_mix.scp" for i in range(0,7)]
 validations_scps = [f"cv_{i}.scp"  if i!=0 else f"cv_mix.scp" for i in range(0,7)]

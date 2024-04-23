@@ -80,6 +80,6 @@ class AudioReader(object):
 
 
 if __name__ == "__main__":
-    r = AudioReader("/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_2.scp")
+    r = AudioReader("cv_2.scp")
     index = 0
     print(r[1])

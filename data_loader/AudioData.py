@@ -82,6 +82,6 @@ class AudioReader(object):
 
 
 if __name__ == "__main__":
-    a = AudioReader("/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_mix.scp")
+    a = AudioReader("cv_mix.scp")
     audio = a.audio
     print(len(audio))

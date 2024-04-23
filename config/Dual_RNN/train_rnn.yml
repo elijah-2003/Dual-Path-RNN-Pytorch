@@ -5,28 +5,28 @@ num_spks: 6
 #### datasets
 datasets:
   train:
-    dataroot_mix: /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_mix.scp
-    dataroot_targets: [/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_1.scp, 
-    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_2.scp, /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_3.scp,
-    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_4.scp, /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_5.scp,
-    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/tr_6.scp]
+    dataroot_mix: tr_mix.scp
+    dataroot_targets: [tr_1.scp, 
+    tr_2.scp, tr_3.scp,
+    tr_4.scp, tr_5.scp,
+    tr_6.scp]
 
   val:
-    dataroot_mix: /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_mix.scp
-    dataroot_targets: [/Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_1.scp,
-    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_2.scp, /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_3.scp,
-    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_4.scp, /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_5.scp,
-    /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/cv_6.scp]
+    dataroot_mix: cv_mix.scp
+    dataroot_targets: [cv_1.scp,
+    cv_2.scp, cv_3.scp,
+    cv_4.scp, cv_5.scp,
+    cv_6.scp]
   
   dataloader_setting:
     shuffle: true
     num_workers: 1  # per GPU
-    batch_size: 1
+    batch_size: 5
   
   audio_setting:
-    sample_rate: 160000
-    chunk_size: 256
-    least_size: 128
+    sample_rate: 16000
+    chunk_size: 48000
+    least_size: 24000
     
 
 #### network structures
@@ -45,10 +45,10 @@ Dual_Path_RNN:
 
 #### training settings: learning rate scheme, loss
 train:
-  epoch: 100
+  epoch: 1
   early_stop: 10
-  path: /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/checkpoint
-  gpuid: [7]
+  path: checkpoint
+  gpuid: [0]
 
 #### Optimizer settings
 optim:
@@ -67,13 +67,13 @@ scheduler:
 #### Resume training settings
 resume:
   state: false
-  path: /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/checkpoint
+  path: checkpoint
 
 
 #### logger
 logger:
   name: DPCL
-  path: /Users/elijahjohnson/Documents/GitHub/Dual-Path-RNN-Pytorch/checkpoint
+  path: checkpoint
   screen: true
   tofile: false
   print_freq: 1000

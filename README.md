@@ -59,7 +59,7 @@ vim train.yml
 
 3. Then use the following command in the root directory to train the model.
 ```shell
-python train_rnn.py --opt config/Dual_RNN/train.yml
+python train_rnn.py --opt config/Dual_RNN/train_rnn.yml
 ```
 
 # Inference
@@ -99,7 +99,7 @@ python test_dualrnn_wav.py
 ## Conv-TasNet
 ![](https://github.com/JusperLee/Dual-Path-RNN-Pytorch/blob/master/log/Conv_Tasnet/loss.png)
 
-Final Results: **15.8690** is 0.56 higher than **15.3** in the paper.
+Final Results: **15.8690** is 0.56 higher than **15.3** in the paper.  
 
 ## Dual-Path-RNN
 
